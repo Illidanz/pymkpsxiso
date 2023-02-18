@@ -1,3 +1,4 @@
+#define VERSION "2.02"
 // This is kind of dirty, but the main.cpp file for both programs includes a lot of code
 // They both use a Main function so we modify one from the setup.py script
 #include "mkpsxiso/src/dumpsxiso/main.cpp"

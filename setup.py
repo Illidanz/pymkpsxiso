@@ -7,7 +7,6 @@ with open("README.md", "r") as fh:
 
 MACROS = [
     ("MKPSXISO_NO_LIBFLAC", "1"),
-    ("VERSION", "\"2.02\""),
 ]
 
 if not os.name == 'nt':
