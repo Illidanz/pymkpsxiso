@@ -19,7 +19,7 @@ else:
 INCLUDES = ["mkpsxiso/src/shared", "mkpsxiso/src/dumpsxiso", "mkpsxiso/src/mkpsxiso", "mkpsxiso/ThreadPool", "mkpsxiso/tinyxml2", "mkpsxiso/miniaudio"]
 
 sources = ["pymkpsxiso.cpp"]
-for dir in INCLUDES + ["mkpsxiso/tinyxml2"]:
+for dir in INCLUDES:
     for file in os.listdir(dir):
         if file.endswith(".cpp") and "xmltest" not in file and "example" not in file and "main.cpp" not in file:
             sources.append(dir + "/" + file)
