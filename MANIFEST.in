@@ -1,0 +1,6 @@
+include mkpsxiso/src/shared/*.h
+include mkpsxiso/src/mkpsxiso/*.h
+include mkpsxiso/src/dumpsxiso/*.h
+include mkpsxiso/miniaudio/*.h
+include mkpsxiso/ThreadPool/*.h
+include mkpsxiso/tinyxml2/*.h
