@@ -30,7 +30,7 @@ def main():
         f.seek(0)
         f.write(all.replace("int Main(int argc, char *argv[])", "int dumpsxiso_main(int argc, char *argv[])"))
     setup(name="pymkpsxiso",
-          version="0.1.0",
+          version="0.1.1",
           author="Illidan",
           description="Python interface for mkpsxiso.",
           long_description=long_description,
