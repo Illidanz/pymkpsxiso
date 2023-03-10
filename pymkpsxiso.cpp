@@ -1,4 +1,8 @@
 #define VERSION "2.02"
+// Fix compilation on apple silicon
+#ifndef stat64
+    #define stat64 stat
+#endif
 // This is kind of dirty, but the main.cpp file for both programs includes a lot of code
 // They both use a Main function so we need to change the name
 #define Main dumpsxiso_main
