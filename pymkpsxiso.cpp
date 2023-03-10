@@ -1,8 +1,11 @@
 #define VERSION "2.02"
 // This is kind of dirty, but the main.cpp file for both programs includes a lot of code
-// They both use a Main function so we modify one from the setup.py script
+// They both use a Main function so we need to change the name
+#define Main dumpsxiso_main
 #include "mkpsxiso/src/dumpsxiso/main.cpp"
+#define Main mkpsxiso_main
 #include "mkpsxiso/src/mkpsxiso/main.cpp"
+#undef Main
 
 #define MALLOC_CHECK(var) if (var == NULL) { PyErr_NoMemory(); return NULL; }
 
@@ -59,7 +62,7 @@ extern "C"
         argv[3] = filename;
         argv[4] = xml;
         argv[5] = NULL;
-        int result = Main(argc, argv);
+        int result = mkpsxiso_main(argc, argv);
         PyMem_Free(argv);
         return PyBool_FromLong((long)(result == 0));
     }
@@ -82,4 +85,9 @@ extern "C"
     {
         return PyModule_Create(&pymkpsxisomodule);
     }
+}
+
+// Add an empty main for mkpsxiso/src/shared/common
+int Main(int argc, char* argv[])
+{
 }

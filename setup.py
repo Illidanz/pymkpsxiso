@@ -24,11 +24,6 @@ for dir in INCLUDES:
             sources.append(dir + "/" + file)
 
 def main():
-    # This is kind of dirty, but the main.cpp files include a lot of code and both use a Main function, so we need to rename one
-    with codecs.open("mkpsxiso/src/dumpsxiso/main.cpp", "r+", "utf-8") as f:
-        all = f.read()
-        f.seek(0)
-        f.write(all.replace("int Main(int argc, char *argv[])", "int dumpsxiso_main(int argc, char *argv[])"))
     setup(name="pymkpsxiso",
           version="0.1.1",
           author="Illidan",
