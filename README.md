@@ -9,5 +9,5 @@ Python interface for mkpsxiso.
 import pymkpsxiso
 
 pymkpsxiso.dump("img.bin", "extract", "extract.xml")
-pymkpsxiso.make("img_new.bin", "extract.xml")
+pymkpsxiso.make("img_new.bin", "img_new.cue", "extract.xml")
 ```
