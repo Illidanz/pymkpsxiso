@@ -50,7 +50,7 @@ extern "C"
         static char *kwlist[] = {"filename", "cuename", "xml",
                                  NULL};
 
-        if(!PyArg_ParseTupleAndKeywords(args, kwargs, "ss", kwlist,
+        if(!PyArg_ParseTupleAndKeywords(args, kwargs, "sss", kwlist,
                                         &filename, &cuename, &xml))
             return NULL;
 
