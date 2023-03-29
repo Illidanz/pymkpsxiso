@@ -44,24 +44,27 @@ extern "C"
     static PyObject *method_make(PyObject *self, PyObject *args, PyObject *kwargs)
     {
         char *filename = NULL;
+        char *cuename = NULL;
         char *xml = NULL;
 
-        static char *kwlist[] = {"filename", "xml",
+        static char *kwlist[] = {"filename", "cuename", "xml",
                                  NULL};
 
         if(!PyArg_ParseTupleAndKeywords(args, kwargs, "ss", kwlist,
-                                        &filename, &xml))
+                                        &filename, &cuename, &xml))
             return NULL;
 
-        int argc = 5;
+        int argc = 7;
         char** argv = (char**)PyMem_Malloc(sizeof(char*) * (argc + 1));
         MALLOC_CHECK(argv);
         argv[0] = "mkpsxiso";
         argv[1] = "-y";
-        argv[2] = "-o";
-        argv[3] = filename;
-        argv[4] = xml;
-        argv[5] = NULL;
+        argv[2] = "-c";
+        argv[3] = cuename;
+        argv[4] = "-o";
+        argv[5] = filename;
+        argv[6] = xml;
+        argv[7] = NULL;
         int result = mkpsxiso_main(argc, argv);
         PyMem_Free(argv);
         return PyBool_FromLong((long)(result == 0));

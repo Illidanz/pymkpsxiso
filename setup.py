@@ -25,7 +25,7 @@ for dir in INCLUDES:
 
 def main():
     setup(name="pymkpsxiso",
-          version="0.1.1",
+          version="0.1.2",
           author="Illidan",
           description="Python interface for mkpsxiso.",
           long_description=long_description,
