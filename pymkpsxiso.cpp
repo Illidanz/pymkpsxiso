@@ -1,4 +1,4 @@
-#define VERSION "2.02"
+#define VERSION "2.03"
 // This is kind of dirty, but the main.cpp file for both programs includes a lot of code
 // They both use a Main function so we need to change the name
 #define Main dumpsxiso_main

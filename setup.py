@@ -1,4 +1,3 @@
-import codecs
 import os
 from setuptools import setup, Extension
 
@@ -25,7 +24,7 @@ for dir in INCLUDES:
 
 def main():
     setup(name="pymkpsxiso",
-          version="0.1.2",
+          version="0.1.3",
           author="Illidan",
           description="Python interface for mkpsxiso.",
           long_description=long_description,
