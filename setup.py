@@ -1,4 +1,3 @@
-import codecs
 import os
 from setuptools import setup, Extension
 
