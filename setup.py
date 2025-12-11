@@ -1,4 +1,5 @@
 import os
+import platform
 from setuptools import setup, Extension
 
 with open("README.md", "r") as fh:
@@ -7,6 +8,11 @@ with open("README.md", "r") as fh:
 MACROS = [
     ("MKPSXISO_NO_LIBFLAC", "1"),
 ]
+
+if "musl" in platform.libc_ver()[0].lower():
+    MACROS.append(("stat64", "stat"))
+    MACROS.append(("fstat64", "fstat"))
+    MACROS.append(("lstat64", "lstat"))
 
 if not os.name == 'nt':
     EXTRA_COMPILE_ARGS = ["-std=c++17"]
@@ -29,9 +35,9 @@ def main():
           long_description=long_description,
           long_description_content_type="text/markdown",
           url="https://github.com/Illidanz/pymkpsxiso",
+          license="MIT",
           classifiers=[
               "Programming Language :: Python :: 3",
-              "License :: OSI Approved :: MIT License",
           ],
           ext_modules=[Extension("pymkpsxiso", sources, include_dirs=INCLUDES, define_macros=MACROS, extra_compile_args=EXTRA_COMPILE_ARGS)]
         )
