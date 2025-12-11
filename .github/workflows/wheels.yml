@@ -21,7 +21,6 @@ jobs:
         uses: pypa/cibuildwheel@v3.3
         env:
           CIBW_ENVIRONMENT_MACOS: MACOSX_DEPLOYMENT_TARGET=10.15
-          CIBW_SKIP: pp3*
       - uses: actions/upload-artifact@v5
         with:
           name: artifact-wheel-${{ matrix.os }}

@@ -12,7 +12,6 @@ if not os.name == 'nt':
     EXTRA_COMPILE_ARGS = ["-std=c++17"]
 else:
     EXTRA_COMPILE_ARGS = ["/std:c++17"]
-    MACROS.append(("_WIN32", ""))
 
 INCLUDES = ["mkpsxiso/src/shared", "mkpsxiso/src/dumpsxiso", "mkpsxiso/src/mkpsxiso", "mkpsxiso/ThreadPool", "mkpsxiso/tinyxml2", "mkpsxiso/miniaudio"]
 
