@@ -26,6 +26,8 @@ if is_musl_system():
     MACROS.append(("stat64", "stat"))
     MACROS.append(("fstat64", "fstat"))
     MACROS.append(("lstat64", "lstat"))
+    MACROS.append(("fseeko64", "fseeko"))
+    MACROS.append(("ftello64", "ftello"))
 
 if not os.name == 'nt':
     EXTRA_COMPILE_ARGS = ["-std=c++17"]
