@@ -1,5 +1,6 @@
 import os
 import platform
+import subprocess
 from setuptools import setup, Extension
 
 with open("README.md", "r") as fh:
@@ -9,7 +10,19 @@ MACROS = [
     ("MKPSXISO_NO_LIBFLAC", "1"),
 ]
 
-if "musl" in platform.libc_ver()[0].lower():
+def is_musl_system():
+    if "musl" in platform.libc_ver()[0].lower():
+        return True
+    try:
+        result = subprocess.run(['ldd', '/bin/ls'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        if 'musl' in result.stdout.lower() or 'musl' in result.stderr.lower():
+            return True
+    except (FileNotFoundError, OSError):
+        pass
+    return False
+
+if is_musl_system():
+    print("Musl libc detected: Aliasing stat64 to stat")
     MACROS.append(("stat64", "stat"))
     MACROS.append(("fstat64", "fstat"))
     MACROS.append(("lstat64", "lstat"))
