@@ -8,6 +8,7 @@ with open("README.md", "r") as fh:
 
 MACROS = [
     ("MKPSXISO_NO_LIBFLAC", "1"),
+    ("GHC_FILESYSTEM_IMPLEMENTATION", "1"),
 ]
 
 def is_musl_system():
@@ -34,7 +35,7 @@ if not os.name == 'nt':
 else:
     EXTRA_COMPILE_ARGS = ["/std:c++17"]
 
-INCLUDES = ["mkpsxiso/src/shared", "mkpsxiso/src/dumpsxiso", "mkpsxiso/src/mkpsxiso", "mkpsxiso/ghc/include", "mkpsxiso/tinyxml2", "mkpsxiso/miniaudio"]
+INCLUDES = ["mkpsxiso/src/shared", "mkpsxiso/src/dumpsxiso", "mkpsxiso/src/mkpsxiso", "mkpsxiso/ghc/include", "mkpsxiso/threadpool", "mkpsxiso/tinyxml2", "mkpsxiso/miniaudio"]
 
 sources = ["pymkpsxiso.cpp"]
 for dir in INCLUDES:
