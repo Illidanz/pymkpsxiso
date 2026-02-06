@@ -44,7 +44,7 @@ for dir in INCLUDES:
 
 def main():
     setup(name="pymkpsxiso",
-          version="0.1.8",
+          version="0.1.9",
           author="Illidan",
           description="Python interface for mkpsxiso.",
           long_description=long_description,
