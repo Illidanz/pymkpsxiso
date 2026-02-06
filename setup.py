@@ -34,7 +34,7 @@ if not os.name == 'nt':
 else:
     EXTRA_COMPILE_ARGS = ["/std:c++17"]
 
-INCLUDES = ["mkpsxiso/src/shared", "mkpsxiso/src/dumpsxiso", "mkpsxiso/src/mkpsxiso", "mkpsxiso/ThreadPool", "mkpsxiso/tinyxml2", "mkpsxiso/miniaudio"]
+INCLUDES = ["mkpsxiso/src/shared", "mkpsxiso/src/dumpsxiso", "mkpsxiso/src/mkpsxiso", "mkpsxiso/ghc/include", "mkpsxiso/tinyxml2", "mkpsxiso/miniaudio"]
 
 sources = ["pymkpsxiso.cpp"]
 for dir in INCLUDES:
@@ -44,7 +44,7 @@ for dir in INCLUDES:
 
 def main():
     setup(name="pymkpsxiso",
-          version="0.1.9",
+          version="0.2.0",
           author="Illidan",
           description="Python interface for mkpsxiso.",
           long_description=long_description,
