@@ -7,7 +7,8 @@ Python interface for mkpsxiso.
 ## Usage
 ```
 import pymkpsxiso
+import pydumpsxiso
 
-pymkpsxiso.dump("img.bin", "extract", "extract.xml")
-pymkpsxiso.make("img_new.bin", "img_new.cue", "extract.xml")
+pydumpsxiso.run("img.bin", "extract", "extract.xml")
+pymkpsxiso.run("img_new.bin", "img_new.cue", "extract.xml")
 ```
